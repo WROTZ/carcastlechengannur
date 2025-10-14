@@ -1,0 +1,1 @@
+Add images for Mercedes-Benz 300SL here.

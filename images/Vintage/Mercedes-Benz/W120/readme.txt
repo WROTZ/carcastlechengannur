@@ -1,0 +1,1 @@
+Add images for Mercedes-Benz W120 here.
