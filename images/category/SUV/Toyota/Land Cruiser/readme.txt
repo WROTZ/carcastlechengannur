@@ -1,1 +1,0 @@
-Add images for Toyota Land Cruiser here.
