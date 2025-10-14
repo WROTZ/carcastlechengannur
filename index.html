@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Car Castle - Wedding Cars</title>
+  <title>Car Castle - Wedding Cars & Services</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     .hero {
@@ -29,7 +29,7 @@
       padding: 1rem;
       text-align: center;
     }
-    #gallerySection { display: none; }
+    #gallerySection, #servicesSection { display: none; }
   </style>
 </head>
 <body>
@@ -44,6 +44,7 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -53,22 +54,42 @@
 <section class="hero">
   <div class="container">
     <h1 class="display-4">Make Your Wedding Ride Memorable</h1>
-    <p class="lead">Choose from our range of luxury, SUV, sedan, and vintage cars</p>
+    <p class="lead">Choose from our range of luxury, SUV, sedan, vintage cars and bus services</p>
   </div>
 </section>
 
+<section id="about" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2>About Us</h2>
+    <p>We provide elegant wedding car rentals and transport services with top-quality service, ensuring you arrive in style and comfort.</p>
+  </div>
+</section>
+
+<!-- Category Section -->
 <section id="categories" class="py-5">
   <div class="container">
     <h2 class="text-center mb-4">Car Categories</h2>
     <div class="row g-4">
-      <div class="col-sm-6 col-md-3"><div class="card category-card text-center p-3" onclick="showCategory('luxury')"><h5>Luxury</h5></div></div>
-      <div class="col-sm-6 col-md-3"><div class="card category-card text-center p-3" onclick="showCategory('suv')"><h5>SUV</h5></div></div>
-      <div class="col-sm-6 col-md-3"><div class="card category-card text-center p-3" onclick="showCategory('sedan')"><h5>Sedan</h5></div></div>
-      <div class="col-sm-6 col-md-3"><div class="card category-card text-center p-3" onclick="showCategory('vintage')"><h5>Vintage</h5></div></div>
+      <div class="col-sm-6 col-md-2">
+        <div class="card category-card text-center p-3" onclick="showCategory('luxury')"><h5>Luxury</h5></div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+        <div class="card category-card text-center p-3" onclick="showCategory('suv')"><h5>SUV</h5></div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+        <div class="card category-card text-center p-3" onclick="showCategory('sedan')"><h5>Sedan</h5></div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+        <div class="card category-card text-center p-3" onclick="showCategory('vintage')"><h5>Vintage</h5></div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+        <div class="card category-card text-center p-3" onclick="showCategory('bus')"><h5>Bus</h5></div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Gallery Section -->
 <section id="gallerySection" class="py-5">
   <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -79,14 +100,36 @@
   </div>
 </section>
 
-<section id="contact" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="mb-4">Contact Us</h2>
-    <p><strong>Phone 1:</strong> <a href="https://wa.me/919747330992" target="_blank">+91 9747330992</a></p>
-    <p><strong>Phone 2:</strong> <a href="https://wa.me/918129530992" target="_blank">+91 8129530992</a></p>
-    <p><strong>Email:</strong> <a href="mailto:vishnubvg3@gmail.com">vishnubvg3@gmail.com</a></p>
-    <p><strong>Instagram:</strong> <a href="https://instagram.com/car_castle_chengannur" target="_blank">@car_castle_chengannur</a></p>
+<!-- Services Section -->
+<section id="services" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Our Services</h2>
+    <div class="row g-4">
+      <div class="col-sm-6 col-md-4">
+        <div class="card text-center p-3 category-card" onclick="alert('Taxi Services Coming Soon!')">
+          <h5>Taxi Services</h5>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="card text-center p-3 category-card" onclick="alert('Tour Packages Coming Soon!')">
+          <h5>Tour Packages</h5>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="card text-center p-3 category-card" onclick="alert('Bus Services Coming Soon!')">
+          <h5>Bus Services</h5>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+
+<section id="contact" class="py-5 text-center">
+  <h2>Contact Us</h2>
+  <p><strong>Phone 1:</strong> <a href="https://wa.me/919747330992" target="_blank">+91 9747330992</a></p>
+  <p><strong>Phone 2:</strong> <a href="https://wa.me/918129530992" target="_blank">+91 8129530992</a></p>
+  <p><strong>Email:</strong> <a href="mailto:vishnubvg3@gmail.com">vishnubvg3@gmail.com</a></p>
+  <p><strong>Instagram:</strong> <a href="https://instagram.com/car_castle_chengannur" target="_blank">@car_castle_chengannur</a></p>
 </section>
 
 <footer>
@@ -97,28 +140,24 @@
 <script>
 const carData = {
   luxury: {
-    BMW: ["3 Series","5 Series","7 Series"],
-    "Mercedes-Benz": ["C-Class","E-Class","S-Class"],
-    Jaguar: ["XF","XE","F-Type"],
-    Audi: ["A4","A6","A8"]
+    BMW: ["image1.jpg","image2.jpg","image3.jpg"],
+    "Mercedes": ["image1.jpg","image2.jpg"],
+    Jaguar: ["image1.jpg","image2.jpg"]
   },
   suv: {
-    Toyota: ["Fortuner","Land Cruiser"],
-    Mitsubishi: ["Pajero","Outlander"],
-    Ford: ["Endeavour","EcoSport"],
-    Mahindra: ["XUV700","Scorpio"]
+    Toyota: ["image1.jpg","image2.jpg"],
+    Ford: ["image1.jpg","image2.jpg"]
   },
   sedan: {
-    Honda: ["City","Amaze"],
-    Hyundai: ["Verna","Elantra"],
-    Skoda: ["Superb","Octavia"],
-    Maruti: ["Ciaz","Dzire"]
+    Honda: ["image1.jpg","image2.jpg"],
+    Skoda: ["image1.jpg"]
   },
   vintage: {
-    "Rolls-Royce": ["Silver Ghost","Phantom I"],
-    Ford: ["Model T","Mustang 1965"],
-    "Mercedes-Benz": ["300SL","W120"],
-    Hindustan: ["Ambassador","Contessa"]
+    "Rolls-Royce": ["image1.jpg","image2.jpg"],
+    Ford: ["image1.jpg"]
+  },
+  bus: {
+    All: ["Bus.jpg","Traveller.jpg","Urbania.jpg"]
   }
 };
 
@@ -140,7 +179,7 @@ function renderBrands(brands) {
   for (const brand in brands) {
     gallery.innerHTML += `
       <div class="col-sm-6 col-md-3">
-        <div class="card category-card text-center p-3" onclick="showModels('${brand}')">
+        <div class="card category-card text-center p-3" onclick="showImages('${brand}')">
           <h5>${brand}</h5>
         </div>
       </div>`;
@@ -148,52 +187,31 @@ function renderBrands(brands) {
   section.style.display = "block";
 }
 
-function showModels(brand) {
+function showImages(brand) {
   const category = currentPath[0];
   currentPath.push(brand);
-  const models = carData[category][brand];
   const gallery = document.getElementById("carGallery");
   const title = document.getElementById("categoryTitle");
   gallery.innerHTML = "";
-  title.textContent = brand + " Models";
+  title.textContent = brand;
 
-  models.forEach(model => {
+  const images = carData[category][brand];
+  images.forEach(img => {
+    const imgPath = category === "bus" ? `images/${category}/All/${img}` : `images/${category}/${brand}/${img}`;
     gallery.innerHTML += `
-      <div class="col-sm-6 col-md-3">
-        <div class="card category-card text-center p-3" onclick="showImages('${model}')">
-          <h5>${model}</h5>
-        </div>
+      <div class="col-sm-6 col-md-4">
+        <img src="${imgPath}" class="img-fluid rounded" alt="${img}">
       </div>`;
   });
 }
 
-function showImages(model) {
-  const [category, brand] = currentPath;
-  currentPath.push(model);
-  const gallery = document.getElementById("carGallery");
-  const title = document.getElementById("categoryTitle");
-  gallery.innerHTML = "";
-  title.textContent = `${brand} ${model}`;
-
-  // Placeholder: show images if available
-  for (let i=1;i<=3;i++) {
-    const imgPath = `images/${category}/${brand}/${model}/image${i}.jpg`;
-    gallery.innerHTML += `
-      <div class="col-sm-6 col-md-4">
-        <img src="${imgPath}" class="img-fluid rounded" alt="${brand} ${model}">
-      </div>`;
-  }
-}
-
 function goBack() {
   const section = document.getElementById("gallerySection");
-  if (currentPath.length === 1) { // back to main categories
+  if (currentPath.length === 1) { 
     section.style.display = "none";
     document.getElementById("categories").style.display = "block";
   } else if (currentPath.length === 2) {
     renderBrands(carData[currentPath[0]]);
-  } else if (currentPath.length === 3) {
-    showModels(currentPath[1]);
   }
   currentPath.pop();
 }
