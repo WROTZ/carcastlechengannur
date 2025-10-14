@@ -1,0 +1,1 @@
+Add images for Mitsubishi Pajero here.

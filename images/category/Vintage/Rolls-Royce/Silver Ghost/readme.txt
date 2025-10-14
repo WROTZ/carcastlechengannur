@@ -1,0 +1,1 @@
+Add images for Rolls-Royce Silver Ghost here.
