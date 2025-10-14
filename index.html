@@ -197,15 +197,7 @@ function showImages(brand) {
     });
   } else {
     currentPath.push(brand);
-    title.textContent = "Choose a Series";
-    for (const series in data) {
-      gallery.innerHTML += `
-        <div class="col-sm-6 col-md-3">
-          <div class="card category-card text-center p-3" onclick="showSeries('${brand}','${series}')">
-            <h5>${series}</h5>
-          </div>
-        </div>`;
-    }
+    renderSubSeries(brand, data);
   }
 }
 
@@ -227,21 +219,43 @@ function showSeries(brand, series) {
   });
 }
 
+// New function for BMW series list
+function renderSubSeries(brand, seriesData) {
+  const gallery = document.getElementById("carGallery");
+  const title = document.getElementById("categoryTitle");
+  gallery.innerHTML = "";
+  title.textContent = "Choose a Series";
+
+  for (const series in seriesData) {
+    gallery.innerHTML += `
+      <div class="col-sm-6 col-md-3">
+        <div class="card category-card text-center p-3" onclick="showSeries('${brand}','${series}')">
+          <h5>${series}</h5>
+        </div>
+      </div>`;
+  }
+}
+
 function goBack() {
   const section = document.getElementById("gallerySection");
 
-  if (currentPath.length === 1) { 
+  if (currentPath.length === 1) {
     section.style.display = "none";
     document.getElementById("categories").style.display = "block";
+    currentPath.pop();
   } else if (currentPath.length === 2) {
     renderBrands(carData[currentPath[0]]);
+    currentPath.pop();
   } else if (currentPath.length === 3) {
-    showImages(currentPath[1]);
+    // Back from series images → show series list
+    const category = currentPath[0];
+    const brand = currentPath[1];
+    renderSubSeries(brand, carData[category][brand]);
+    currentPath.pop();
   }
-
-  currentPath.pop();
 }
 </script>
 
 </body>
 </html>
+
