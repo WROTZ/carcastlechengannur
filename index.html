@@ -126,7 +126,13 @@
 <script>
 const carData = {
   luxury: {
-    BMW: ["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg"],
+    BMW: {
+      "5 Series": ["5series1.jpg", "5series2.jpg"],
+      "M5 Convertible": ["m5conv1.jpg", "m5conv2.jpg"],
+      "GT": ["gt1.jpg", "gt2.jpg"],
+      "530Li": ["530li1.jpg", "530li2.jpg"],
+      "M6": ["m6_1.jpg", "m6_2.jpg"]
+    },
     Mercedes: ["image1.jpg","image2.jpg","image3.jpg"],
     Jaguar: ["image1.jpg","image2.jpg"],
     Audi: ["image1.jpg","image2.jpg","image3.jpg"],
@@ -174,15 +180,46 @@ function renderBrands(brands) {
 
 function showImages(brand) {
   const category = currentPath[0];
-  currentPath.push(brand);
   const gallery = document.getElementById("carGallery");
   const title = document.getElementById("categoryTitle");
   gallery.innerHTML = "";
-  title.textContent = brand;
 
-  const images = carData[category][brand];
+  const data = carData[category][brand];
+
+  if (Array.isArray(data)) {
+    title.textContent = brand;
+    data.forEach(img => {
+      const imgPath = `images/${category}/${brand}/${img}`;
+      gallery.innerHTML += `
+        <div class="col-sm-6 col-md-4">
+          <img src="${imgPath}" class="img-fluid rounded" alt="${img}">
+        </div>`;
+    });
+  } else {
+    currentPath.push(brand);
+    title.textContent = "Choose a Series";
+    for (const series in data) {
+      gallery.innerHTML += `
+        <div class="col-sm-6 col-md-3">
+          <div class="card category-card text-center p-3" onclick="showSeries('${brand}','${series}')">
+            <h5>${series}</h5>
+          </div>
+        </div>`;
+    }
+  }
+}
+
+function showSeries(brand, series) {
+  const category = currentPath[0];
+  currentPath.push(series);
+  const gallery = document.getElementById("carGallery");
+  const title = document.getElementById("categoryTitle");
+  gallery.innerHTML = "";
+  title.textContent = series;
+
+  const images = carData[category][brand][series];
   images.forEach(img => {
-    const imgPath = category === "bus" ? `images/${category}/${brand}/${img}` : `images/${category}/${brand}/${img}`;
+    const imgPath = `images/${category}/${brand}/${series}/${img}`;
     gallery.innerHTML += `
       <div class="col-sm-6 col-md-4">
         <img src="${imgPath}" class="img-fluid rounded" alt="${img}">
@@ -192,14 +229,19 @@ function showImages(brand) {
 
 function goBack() {
   const section = document.getElementById("gallerySection");
+
   if (currentPath.length === 1) { 
     section.style.display = "none";
     document.getElementById("categories").style.display = "block";
   } else if (currentPath.length === 2) {
     renderBrands(carData[currentPath[0]]);
+  } else if (currentPath.length === 3) {
+    showImages(currentPath[1]);
   }
+
   currentPath.pop();
 }
 </script>
+
 </body>
 </html>
