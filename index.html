@@ -1,137 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Car Castle - Wedding Cars & Services</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .hero {
-      background: url('images/car1.jpg') no-repeat center center/cover;
-      color: white;
-      height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-    .category-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .category-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-    footer {
-      background: #212529;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    #gallerySection { display: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Car Castle - Wedding Cars & Services</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.hero {
+  background: url('images/car1.jpg') no-repeat center center/cover;
+  color: white;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+footer {
+  background: #212529;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+#gallerySection { display: none; }
+</style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Car Castle Chengannur</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
+<div class="container">
+<a class="navbar-brand" href="#">Car Castle Chengannur</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
 </nav>
 
 <section class="hero">
-  <div class="container">
-    <h1 class="display-4">Make Your Wedding Ride Memorable</h1>
-    <p class="lead">Choose from our range of luxury, SUV, sedan, vintage cars and bus services</p>
-  </div>
+<div class="container">
+<h1 class="display-4">Make Your Wedding Ride Memorable</h1>
+<p class="lead">Choose from our range of luxury, SUV, sedan, vintage cars and bus services</p>
+</div>
 </section>
 
 <section id="about" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2>About Us</h2>
-    <p>We provide elegant wedding car rentals and transport services with top-quality service, ensuring you arrive in style and comfort.</p>
-  </div>
+<div class="container text-center">
+<h2>About Us</h2>
+<p>We provide elegant wedding car rentals and transport services with top-quality service, ensuring you arrive in style and comfort.</p>
+</div>
 </section>
 
-<!-- Category Section -->
 <section id="categories" class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Car Categories</h2>
-    <div class="row g-4 justify-content-center">
-      <div class="col-sm-6 col-md-2">
-        <div class="card category-card text-center p-3" onclick="showCategory('luxury')"><h5>Luxury</h5></div>
-      </div>
-      <div class="col-sm-6 col-md-2">
-        <div class="card category-card text-center p-3" onclick="showCategory('suv')"><h5>SUV</h5></div>
-      </div>
-      <div class="col-sm-6 col-md-2">
-        <div class="card category-card text-center p-3" onclick="showCategory('sedan')"><h5>Sedan</h5></div>
-      </div>
-      <div class="col-sm-6 col-md-2">
-        <div class="card category-card text-center p-3" onclick="showCategory('vintage')"><h5>Vintage</h5></div>
-      </div>
-      <div class="col-sm-6 col-md-2">
-        <div class="card category-card text-center p-3" onclick="showCategory('bus')"><h5>Bus</h5></div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<h2 class="text-center mb-4">Car Categories</h2>
+<div class="row g-4 justify-content-center">
+<div class="col-sm-6 col-md-2"><div class="card category-card text-center p-3" onclick="showCategory('luxury')"><h5>Luxury</h5></div></div>
+<div class="col-sm-6 col-md-2"><div class="card category-card text-center p-3" onclick="showCategory('suv')"><h5>SUV</h5></div></div>
+<div class="col-sm-6 col-md-2"><div class="card category-card text-center p-3" onclick="showCategory('sedan')"><h5>Sedan</h5></div></div>
+<div class="col-sm-6 col-md-2"><div class="card category-card text-center p-3" onclick="showCategory('vintage')"><h5>Vintage</h5></div></div>
+<div class="col-sm-6 col-md-2"><div class="card category-card text-center p-3" onclick="showCategory('bus')"><h5>Bus</h5></div></div>
+</div>
+</div>
 </section>
 
-<!-- Gallery Section -->
 <section id="gallerySection" class="py-5">
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 id="categoryTitle">Gallery</h2>
-      <button class="btn btn-outline-dark" onclick="goBack()">← Back</button>
-    </div>
-    <div class="row g-4" id="carGallery"></div>
-  </div>
+<div class="container">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2 id="categoryTitle">Gallery</h2>
+<button class="btn btn-outline-dark" onclick="goBack()">← Back</button>
+</div>
+<div class="row g-4" id="carGallery"></div>
+</div>
 </section>
 
-<!-- Services Section -->
 <section id="services" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center mb-4">Our Services</h2>
-    <ul class="list-group list-group-flush text-center">
-      <li class="list-group-item">Taxi Services</li>
-      <li class="list-group-item">Tour Packages</li>
-      <li class="list-group-item">Bus Services</li>
-    </ul>
-  </div>
+<div class="container">
+<h2 class="text-center mb-4">Our Services</h2>
+<ul class="list-group list-group-flush text-center">
+<li class="list-group-item">Taxi Services</li>
+<li class="list-group-item">Tour Packages</li>
+<li class="list-group-item">Bus Services</li>
+</ul>
+</div>
 </section>
 
 <section id="contact" class="py-5 text-center">
-  <h2>Contact Us</h2>
-  <p><strong>Phone 1:</strong> <a href="https://wa.me/919747330992" target="_blank">+91 9747330992</a></p>
-  <p><strong>Phone 2:</strong> <a href="https://wa.me/918129530992" target="_blank">+91 8129530992</a></p>
-  <p><strong>Email:</strong> <a href="mailto:vishnubvg3@gmail.com">vishnubvg3@gmail.com</a></p>
-  <p><strong>Instagram:</strong> <a href="https://instagram.com/car_castle_chengannur" target="_blank">@car_castle_chengannur</a></p>
+<h2>Contact Us</h2>
+<p><strong>Phone 1:</strong> <a href="https://wa.me/919747330992" target="_blank">+91 9747330992</a></p>
+<p><strong>Phone 2:</strong> <a href="https://wa.me/918129530992" target="_blank">+91 8129530992</a></p>
+<p><strong>Email:</strong> <a href="mailto:vishnubvg3@gmail.com">vishnubvg3@gmail.com</a></p>
+<p><strong>Instagram:</strong> <a href="https://instagram.com/car_castle_chengannur" target="_blank">@car_castle_chengannur</a></p>
 </section>
 
 <footer>
-  <p>&copy; 2025 Car Castle Chengannur. All rights reserved.</p>
+<p>&copy; 2025 Car Castle Chengannur. All rights reserved.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 const carData = {
-  luxury: { BMW: ["image1.jpg"], Mercedes: ["image1.jpg"], Jaguar: ["image1.jpg"] },
-  suv: { Toyota: ["image1.jpg"], Ford: ["image1.jpg"] },
-  sedan: { Honda: ["image1.jpg"], Skoda: ["image1.jpg"] },
-  vintage: { "Rolls-Royce": ["image1.jpg"], Ford: ["image1.jpg"] },
-  bus: { All: ["Bus.jpg","Traveller.jpg","Urbania.jpg"] }
+  luxury: { BMW:["image1.jpg"], Mercedes:["image1.jpg"], Jaguar:["image1.jpg"], Audi:["image1.jpg"], Porsche:["image1.jpg"] },
+  suv: { Toyota:["image1.jpg"], Ford:["image1.jpg"] },
+  sedan: { Honda:["image1.jpg"], Skoda:["image1.jpg"] },
+  vintage: { "Rolls-Royce":["image1.jpg"], Ford:["image1.jpg"] },
+  bus: { All:["Bus.jpg","Traveller.jpg","Urbania.jpg"] }
 };
 
 let currentPath = [];
