@@ -1,1 +1,0 @@
-Add images for Skoda Octavia here.

@@ -1,1 +1,0 @@
-Add images for Maruti Ciaz here.

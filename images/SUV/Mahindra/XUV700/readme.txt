@@ -1,1 +1,0 @@
-Add images for Mahindra XUV700 here.

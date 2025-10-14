@@ -1,1 +1,0 @@
-Add images for Rolls-Royce Phantom I here.

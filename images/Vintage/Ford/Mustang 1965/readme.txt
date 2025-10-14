@@ -1,1 +1,0 @@
-Add images for Ford Mustang 1965 here.

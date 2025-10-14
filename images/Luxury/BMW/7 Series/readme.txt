@@ -1,1 +1,0 @@
-Add images for BMW 7 Series here.
