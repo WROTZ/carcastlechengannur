@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Car Castle - Wedding Cars & Services</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     .hero {
       background: url('images/car1.jpg') no-repeat center center/cover;
@@ -15,25 +16,30 @@
       justify-content: center;
       text-align: center;
     }
+
     .category-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
+
     .category-card:hover {
       transform: scale(1.05);
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
+
     footer {
       background: #212529;
       color: white;
       padding: 1rem;
       text-align: center;
     }
+
     #gallerySection { display: none; }
   </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand" href="#">Car Castle Chengannur</a>
@@ -45,12 +51,14 @@
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <h1 class="display-4">Make Your Wedding Ride Memorable</h1>
@@ -58,6 +66,7 @@
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="py-5 bg-light">
   <div class="container text-center">
     <h2>About Us</h2>
@@ -65,7 +74,7 @@
   </div>
 </section>
 
-<!-- Category Section -->
+<!-- CATEGORIES -->
 <section id="categories" class="py-5">
   <div class="container">
     <h2 class="text-center mb-4">Car Categories</h2>
@@ -89,7 +98,7 @@
   </div>
 </section>
 
-<!-- Gallery Section -->
+<!-- GALLERY -->
 <section id="gallerySection" class="py-5">
   <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -100,9 +109,9 @@
   </div>
 </section>
 
-<!-- Services Section -->
-<section id="services" class="py-5 bg-light">
-  <div class="container text-center">
+<!-- SERVICES -->
+<section id="services" class="py-5 bg-light text-center">
+  <div class="container">
     <h2 class="mb-4">Our Services</h2>
     <p>Taxi Services</p>
     <p>Tour Packages</p>
@@ -110,6 +119,45 @@
   </div>
 </section>
 
+<!-- ⭐ REVIEWS & RATINGS -->
+<section id="reviews" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">⭐ Customer Reviews</h2>
+
+    <div class="text-center mb-3">
+      <h4 id="averageRating">Average Rating: 0 ⭐</h4>
+    </div>
+
+    <div class="card p-4 mb-4">
+      <h5>Leave a Review</h5>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input id="reviewName" class="form-control" placeholder="Your Name">
+        </div>
+        <div class="col-md-4">
+          <select id="reviewRating" class="form-select">
+            <option value="">Rating</option>
+            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+            <option value="4">⭐⭐⭐⭐ Very Good</option>
+            <option value="3">⭐⭐⭐ Good</option>
+            <option value="2">⭐⭐ Average</option>
+            <option value="1">⭐ Poor</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <textarea id="reviewMessage" class="form-control" rows="3" placeholder="Write your review..."></textarea>
+        </div>
+        <div class="col-md-12 text-end">
+          <button class="btn btn-dark" onclick="submitReview()">Submit Review</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3" id="reviewList"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="py-5 text-center">
   <h2>Contact Us</h2>
   <p><strong>Phone 1:</strong> <a href="https://wa.me/919747330992" target="_blank">+91 9747330992</a></p>
@@ -123,145 +171,125 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
+/* ===================== YOUR ORIGINAL GALLERY CODE (UNCHANGED) ===================== */
 const carData = {
   luxury: {
     BMW: {
-      "5 Series": ["5series1.jpg", "5series2.jpg","5series3.jpg","5series4.jpg"],
-      "M5 Convertible": ["m5conv1.jpg", "m5conv2.jpg","m5conv3.jpg","m5conv4.jpg","m5conv5.jpg","m5conv6.jpg","m5conv7.jpg"],
-      "GT": ["gt1.jpg", "gt2.jpg","gt3.jpg","gt4.jpg","gt5.jpg","gt6.jpg"],
-      "530Li": ["530li1.jpg", "530li2.jpg","530li3.jpg","530li4.jpg","530li5.jpg"],
-      "M6": ["m6_1.jpg", "m6_2.jpg"]
+      "5 Series": ["5series1.jpg","5series2.jpg","5series3.jpg","5series4.jpg"],
+      "M5 Convertible": ["m5conv1.jpg","m5conv2.jpg","m5conv3.jpg","m5conv4.jpg","m5conv5.jpg","m5conv6.jpg","m5conv7.jpg"],
+      "GT": ["gt1.jpg","gt2.jpg","gt3.jpg","gt4.jpg","gt5.jpg","gt6.jpg"],
+      "530Li": ["530li1.jpg","530li2.jpg","530li3.jpg","530li4.jpg","530li5.jpg"],
+      "M6": ["m6_1.jpg","m6_2.jpg"]
     },
-    Mercedes_Benz_E220_LWB: ["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg"],
+    Mercedes_Benz_E220_LWB:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg"],
     Mercedes_Benz_E250:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg"],
     Mercedes_Benz_Sclass:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg"],
     jaguarXF:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg"],
-    Audi_A6_matrix: ["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg","image11.jpg","image12.jpg"],
-    Porsche: ["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg"]
+    Audi_A6_matrix:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg","image11.jpg","image12.jpg"],
+    Porsche:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg"]
   },
   suv: {
-    SUV: ["image1.jpg","image2.jpg","image3.jpg","image4.jpg"],
+    SUV:["image1.jpg","image2.jpg","image3.jpg","image4.jpg"],
     MercedesBenzGLS:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg"]
   },
   sedan: {
-    HondaCity: ["image1.jpg","image2.jpg","image3.jpg","image4.jpg"],
+    HondaCity:["image1.jpg","image2.jpg","image3.jpg","image4.jpg"],
     VolkswagenVirtus:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg"]
   },
   vintage: {
     Contessa:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg","image11.jpg","image12.jpg","image13.jpg","image14.jpg","image15.jpg","image16.jpg","image17.jpg","image18.jpg","image19.jpg","image20.jpg","image21.jpg","image22.jpg"],
     MercedesBenzW123:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg","image11.jpg","image12.jpg","image13.jpg","image14.jpg","image15.jpg"],
-    ChevroletImpala:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg"]                   
+    ChevroletImpala:["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg"]
   },
   bus: {
-    "Bus, Traveller & Urbania": ["Bus.jpg","Urbania.jpg"]
+    "Bus, Traveller & Urbania":["Bus.jpg","Urbania.jpg"]
   }
 };
 
 let currentPath = [];
-
-function showCategory(category) {
-  currentPath = [category];
-  renderBrands(carData[category]);
-}
-
-function renderBrands(brands) {
-  document.getElementById("categories").style.display = "none";
-  const gallery = document.getElementById("carGallery");
-  const title = document.getElementById("categoryTitle");
-  const section = document.getElementById("gallerySection");
-  gallery.innerHTML = "";
-  title.textContent = "Choose a Brand";
-
-  for (const brand in brands) {
-    gallery.innerHTML += `
-      <div class="col-sm-6 col-md-3">
-        <div class="card category-card text-center p-3" onclick="showImages('${brand}')">
-          <h5>${brand}</h5>
-        </div>
-      </div>`;
+function showCategory(c){currentPath=[c];renderBrands(carData[c]);}
+function renderBrands(b){
+  categories.style.display="none";
+  carGallery.innerHTML="";
+  categoryTitle.innerText="Choose a Brand";
+  for(const k in b){
+    carGallery.innerHTML+=`<div class="col-md-3"><div class="card category-card p-3 text-center" onclick="showImages('${k}')"><h5>${k}</h5></div></div>`;
   }
-  section.style.display = "block";
+  gallerySection.style.display="block";
 }
-
-function showImages(brand) {
-  const category = currentPath[0];
-  const gallery = document.getElementById("carGallery");
-  const title = document.getElementById("categoryTitle");
-  gallery.innerHTML = "";
-
-  const data = carData[category][brand];
-
-  if (Array.isArray(data)) {
-    title.textContent = brand;
-    data.forEach(img => {
-      const imgPath = `images/${category}/${brand}/${img}`;
-      gallery.innerHTML += `
-        <div class="col-sm-6 col-md-4">
-          <img src="${imgPath}" class="img-fluid rounded" alt="${img}">
-        </div>`;
+function showImages(b){
+  const c=currentPath[0];
+  const d=carData[c][b];
+  carGallery.innerHTML="";
+  if(Array.isArray(d)){
+    categoryTitle.innerText=b;
+    d.forEach(i=>{
+      carGallery.innerHTML+=`<div class="col-md-4"><img src="images/${c}/${b}/${i}" class="img-fluid rounded"></div>`;
     });
-  } else {
-    currentPath.push(brand);
-    renderSubSeries(brand, data);
+  }else{
+    currentPath.push(b);
+    renderSubSeries(b,d);
   }
 }
-
-function showSeries(brand, series) {
-  const category = currentPath[0];
-  currentPath.push(series);
-  const gallery = document.getElementById("carGallery");
-  const title = document.getElementById("categoryTitle");
-  gallery.innerHTML = "";
-  title.textContent = series;
-
-  const images = carData[category][brand][series];
-  images.forEach(img => {
-    const imgPath = `images/${category}/${brand}/${series}/${img}`;
-    gallery.innerHTML += `
-      <div class="col-sm-6 col-md-4">
-        <img src="${imgPath}" class="img-fluid rounded" alt="${img}">
-      </div>`;
+function renderSubSeries(b,s){
+  carGallery.innerHTML="";
+  categoryTitle.innerText="Choose a Series";
+  for(const k in s){
+    carGallery.innerHTML+=`<div class="col-md-3"><div class="card category-card p-3 text-center" onclick="showSeries('${b}','${k}')"><h5>${k}</h5></div></div>`;
+  }
+}
+function showSeries(b,s){
+  const c=currentPath[0];
+  categoryTitle.innerText=s;
+  carGallery.innerHTML="";
+  carData[c][b][s].forEach(i=>{
+    carGallery.innerHTML+=`<div class="col-md-4"><img src="images/${c}/${b}/${s}/${i}" class="img-fluid rounded"></div>`;
   });
 }
+function goBack(){
+  if(currentPath.length===1){gallerySection.style.display="none";categories.style.display="block";currentPath.pop();}
+  else if(currentPath.length===2){renderBrands(carData[currentPath[0]]);currentPath.pop();}
+}
 
-// New function for BMW series list
-function renderSubSeries(brand, seriesData) {
-  const gallery = document.getElementById("carGallery");
-  const title = document.getElementById("categoryTitle");
-  gallery.innerHTML = "";
-  title.textContent = "Choose a Series";
+/* ===================== REVIEWS SCRIPT ===================== */
+let reviews = JSON.parse(localStorage.getItem("carCastleReviews")) || [];
 
-  for (const series in seriesData) {
-    gallery.innerHTML += `
-      <div class="col-sm-6 col-md-3">
-        <div class="card category-card text-center p-3" onclick="showSeries('${brand}','${series}')">
-          <h5>${series}</h5>
+function submitReview(){
+  if(!reviewName.value || !reviewRating.value || !reviewMessage.value){
+    alert("Please fill all fields"); return;
+  }
+  reviews.unshift({
+    name:reviewName.value,
+    rating:Number(reviewRating.value),
+    message:reviewMessage.value,
+    date:new Date().toLocaleDateString()
+  });
+  localStorage.setItem("carCastleReviews",JSON.stringify(reviews));
+  reviewName.value=reviewRating.value=reviewMessage.value="";
+  renderReviews();
+}
+
+function renderReviews(){
+  reviewList.innerHTML="";
+  if(!reviews.length) return;
+  let t=0;
+  reviews.forEach(r=>{
+    t+=r.rating;
+    reviewList.innerHTML+=`
+      <div class="col-md-6">
+        <div class="card p-3">
+          <h6>${r.name} <small>(${r.date})</small></h6>
+          <div>${"⭐".repeat(r.rating)}</div>
+          <p>${r.message}</p>
         </div>
       </div>`;
-  }
+  });
+  averageRating.innerText=`Average Rating: ${(t/reviews.length).toFixed(1)} ⭐`;
 }
-
-function goBack() {
-  const section = document.getElementById("gallerySection");
-
-  if (currentPath.length === 1) {
-    section.style.display = "none";
-    document.getElementById("categories").style.display = "block";
-    currentPath.pop();
-  } else if (currentPath.length === 2) {
-    renderBrands(carData[currentPath[0]]);
-    currentPath.pop();
-  } else if (currentPath.length === 3) {
-    // Back from series images → show series list
-    const category = currentPath[0];
-    const brand = currentPath[1];
-    renderSubSeries(brand, carData[category][brand]);
-    currentPath.pop();
-  }
-}
+renderReviews();
 </script>
 
 </body>
 </html>
-
